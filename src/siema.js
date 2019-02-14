@@ -163,6 +163,7 @@ export default class Siema {
     // Create frame and apply styling
     this.sliderFrame = document.createElement('div');
     this.sliderFrame.style.width = `${widthItem * itemsToBuild}px`;
+    this.sliderFrame.style.display = 'flex';
     this.enableTransition();
 
     if (this.config.draggable) {
@@ -202,12 +203,8 @@ export default class Siema {
   }
 
   buildSliderFrameItem(elm) {
-    const elementContainer = document.createElement('div');
-    elementContainer.style.cssFloat = this.config.rtl ? 'right' : 'left';
-    elementContainer.style.float = this.config.rtl ? 'right' : 'left';
-    elementContainer.style.width = `${this.config.loop ? 100 / (this.innerElements.length + (this.perPage * 2)) : 100 / (this.innerElements.length)}%`;
-    elementContainer.appendChild(elm);
-    return elementContainer;
+    elm.style.width = `${this.config.loop ? 100 / (this.innerElements.length + (this.perPage * 2)) : 100 / (this.innerElements.length)}%`;
+    return elm;
   }
 
 
